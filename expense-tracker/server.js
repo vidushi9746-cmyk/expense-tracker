@@ -2,7 +2,9 @@ const express= require('express');
 const dotenv= require('dotenv');
 const connectDB= require('./config/db');
 const cors = require('cors');
-dotenv.config();
+if (process.env.NODE_ENV !== 'production'){
+    dotenv.config();
+}
 connectDB();
 const app= express();
 app.use(express.json());
